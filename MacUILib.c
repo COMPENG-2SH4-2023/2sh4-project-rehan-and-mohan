@@ -3,8 +3,11 @@
 print_ptr MacUILib_printf;
 
 #ifdef WINDOWS
+    #include <windows.h>
+
 
 	#include <conio.h>
+
 	
 	void MacUILib_init(void)
 	{
@@ -17,10 +20,10 @@ print_ptr MacUILib_printf;
 		MacUILib_printf = &printf;
 	}
 
-	void MacUILib_Delay(int usec)
-	{
-		usleep(usec);
-	}
+    void MacUILib_Delay(int msec)
+    {
+        Sleep(msec); // Sleep expects milliseconds
+    }
 	
 	int MacUILib_hasChar(void)
 	{
